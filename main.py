@@ -70,7 +70,7 @@ conv_handler = ConversationHandler(
             QR_CODE_RESULT: [MessageHandler(Filters.text & ~Filters.command, qrcode_size)],
             QR_CODE_SIZE: [MessageHandler(Filters.text & ~Filters.command, save_qrcode_size)],
         },
-        fallbacks=[],
+        fallbacks=[CommandHandler('qr_code',qrcode_name)],
     )
 
     # Add the conversation handler to the dispatcher
